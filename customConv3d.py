@@ -24,16 +24,16 @@ def customConv3d(in_channels, out_channels, kernel_size, stride=1, padding=0\
         
         #Подложка
         if (padding_mode == 'zeros'):
-            pad = torch.nn.ZeroPad2d(padding)
+            pad = torch.nn.ZeroPad3d(padding)
             tens = pad(tens)
         elif (padding_mode == 'reflect'):
-            pad = torch.nn.ReflectionPad2d(padding)
+            pad = torch.nn.ReflectionPad3d(padding)
             tens = pad(tens)
         elif (padding_mode == 'replicate'):
-            pad = torch.nn.ReplicationPad2d(padding)
+            pad = torch.nn.ReplicationPad3d(padding)
             tens = pad(tens)
         elif (padding_mode == 'circular'):
-            pad = torch.nn.CircularPad2d(padding)
+            pad = torch.nn.CircularPad3d(padding)
             tens = pad(tens)
         else:
             raise Exception(f"Ivalid padding_mode")
